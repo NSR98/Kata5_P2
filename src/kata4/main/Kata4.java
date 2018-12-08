@@ -7,7 +7,7 @@ import kata4.model.Histogram;
 import kata4.model.Mail;
 import kata4.view.HistogramDisplay;
 import kata4.view.MailHistogramBuilder;
-import kata4.view.MailListReader;
+import kata4.view.MailListReaderBD;
 
 public class Kata4 {
     List<Mail> mailList = new ArrayList<>();
@@ -26,11 +26,7 @@ public class Kata4 {
     }
     
     public void input() {
-        try {
-            mailList = new MailListReader().read("email.txt");
-        } catch (IOException ex) {
-            System.out.println("No se pudo leer el fichero");
-        }
+        mailList = new MailListReaderBD().read();
     }
 
     public void process() throws IOException{
